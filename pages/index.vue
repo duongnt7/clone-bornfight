@@ -3,6 +3,7 @@
     <div>
       <Nav />
       <Detail />
+      <Information />
     </div>
   </div>
 </template>
@@ -18,7 +19,6 @@ export default {};
 }
 */
 .container {
-  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -47,5 +47,12 @@ export default {};
 
 .links {
   padding-top: 15px;
+}
+.o-container {
+  float: right;
+  width: 100%;
+  max-width: 88.88889%;
+  padding-left: 6.66667%;
+  padding-right: 4.44444%;
 }
 </style>

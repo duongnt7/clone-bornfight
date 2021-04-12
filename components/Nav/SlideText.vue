@@ -14,6 +14,9 @@ export default {
   width: 300px;
   margin: 20px 0;
   animation: display 0.4s;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0;
 }
 @keyframes display {
   from {
