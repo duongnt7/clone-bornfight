@@ -16,16 +16,18 @@
         @click="openMenu"
         :class="{ open: menuOpen }"
       >
-        <i class="header-menu-line line-top"></i>
-        <i class="header-menu-line line-middle"></i>
-        <i class="header-menu-line line-bot"></i>
+        <div class='bt-menu'>
+          <i class="header-menu-line line-top"></i>
+          <i class="header-menu-line line-middle"></i>
+          <i class="header-menu-line line-bot"></i>
+        </div>
       </div>
 
       <!-- <div>
       hello@bornfight.com
     </div> -->
     </div>
-    <div class="navigation" :class="{ navigation__animation: menuOpen }">
+    <div class="navigation" :class="{ navigation__animation: menuOpen, keep_nav: keepOpen, fade: animationFade}">
       <div class="navigation__content">
         <div class="navigation__content-left">
           <div class="content__logo-top">
@@ -65,28 +67,41 @@ export default {
   data() {
     return {
       menuOpen: false,
-      openImage: false
+      openImage: false,
+      keepOpen: false,
+      animationFade: false,
     };
   },
   methods: {
     openMenu() {
       this.menuOpen = !this.menuOpen;
       if (this.menuOpen) {
+        this.keepOpen = !this.keepOpen;
         setTimeout(() => {
           this.openImage = !this.openImage;
         }, 1000);
       } else {
-        this.openImage = false;
+        setTimeout(() => {
+          this.animationFade = true;
+        }, 700);
+        setTimeout(() => {
+          this.keepOpen = !this.keepOpen;
+          this.openImage = !this.openImage;
+          this.animationFade = false;
+        }, 1000);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
 .navigation {
   display: none;
+  opacity: 0;
 }
-.navigation__animation {
+
+.keep_nav {
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -96,7 +111,7 @@ export default {
   animation: slideRight ease 0.8s;
   z-index: 12;
   color: #000;
-  display: block;
+  opacity: 1;
 }
 @keyframes slideRight {
   from {
@@ -109,6 +124,17 @@ export default {
 .navigation__content {
   margin-left: 105px;
   /* margin-top: 235px; */
+}
+.keep_nav.fade {
+  animation: fade forwards 0.3s;
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 .navigation__content-left {
   background-color: #fff;
@@ -149,8 +175,47 @@ export default {
     transform: translateX(100%);
   }
 }
-.openImage {
+.navigation__animation.keep_nav .openImage {
   animation: slideCenterRight ease 1s forwards;
+}
+.keep_nav .openImage {
+  animation: slideCenterRightHide ease 0.5s forwards;
+}
+@keyframes slideCenterRightHide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.content__links li {
+  animation: hideLi forwards 0.8s;
+}
+@keyframes hideLi {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+    display: none;
+  }
+  to {
+    transform: translateY(-30px);
+    opacity: 0;
+    display: none;
+  }
+}
+.navigation__animation .content__links li {
+  animation: showLi forwards 2s;
+}
+@keyframes showLi {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 .content__links--top {
   font-size: 3rem;
@@ -194,21 +259,31 @@ export default {
 .header-logo {
   height: 42px;
 }
+.header-menu {
+  margin: 0 auto;
+}
+.open .header-menu-line {
+  background-color: #111;
+}
 .header-menu-line {
-  display: inline-block;
+  display: block;
   background-color: #fff;
-  width: 2px;
-  height: 30px;
-  transition: 0.4s;
+  width: 30px;
+  height: 2px;
+  margin-bottom: 5px;
   mix-blend-mode: difference;
+  transition: 0.4s;
 }
 .open .line-top {
-  transform: rotate(-45deg) translate(0px, 0px);
+  transform: rotate(-45deg) translate(-10px, 0px);
 }
 .open .line-bot {
-  transform: rotate(45deg) translate(-6px, 5px);
+  transform: rotate(45deg) translate(-5px, 5px);
 }
 .open .line-middle {
   display: none;
+}
+.bt-menu {
+  /* z-index: 10; */
 }
 </style>
