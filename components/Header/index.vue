@@ -17,9 +17,9 @@
         :class="{ open: menuOpen }"
       >
         <div class='bt-menu'>
-          <i class="header-menu-line line-top"></i>
-          <i class="header-menu-line line-middle"></i>
-          <i class="header-menu-line line-bot"></i>
+          <i class="relative header-menu-line line-top"></i>
+          <i class="relative header-menu-line line-middle"></i>
+          <i class="relative header-menu-line line-bot"></i>
         </div>
       </div>
 
@@ -29,7 +29,7 @@
     </div>
     <div class="navigation" :class="{ navigation__animation: menuOpen, keep_nav: keepOpen, fade: animationFade}">
       <div class="navigation__content">
-        <div class="navigation__content-left">
+        <div class="flex items-center navigation__content-left">
           <div class="content__logo-top">
             <a href="#">
               <img
@@ -40,7 +40,9 @@
           </div>
           <div class="content__links">
             <ul class="content__links--top">
-              <li><a href="#">What we do</a></li>
+              <li>
+                <NuxtLink to='/services'>What we do</NuxtLink>
+              </li>
               <li><a href="#">Your work</a></li>
               <li><a href="#">Blog</a></li>
             </ul>
@@ -273,6 +275,62 @@ export default {
   margin-bottom: 5px;
   mix-blend-mode: difference;
   transition: 0.4s;
+  width: 30px;
+}
+.header-menu-line::after {
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  background: #111;
+  opacity: 0.5;
+  right: 0;
+  width: 0;
+}
+.bt-menu:hover .header-menu-line::after {
+  left: 0;
+}
+.line-top.header-menu-line::after {
+  animation: anmBtMenu forwards 0.4s;
+}
+.line-middle.header-menu-line::after {
+  animation: anmBtMenu forwards 0.4s 50ms;
+}
+.line-bot.header-menu-line::after {
+  animation: anmBtMenu forwards 0.4s 0.1s;
+}
+.open .header-menu-line::after {
+  background-color: #fff;
+}
+.bt-menu:hover .line-top.header-menu-line::after {
+  animation: anmBtMenuHover forwards 0.4s;
+}
+.bt-menu:hover .line-middle.header-menu-line::after {
+  animation: anmBtMenuHover forwards 0.4s 50ms;
+}
+.bt-menu:hover .line-bot.header-menu-line::after {
+  animation: anmBtMenuHover forwards 0.4s 0.1s;
+}
+@keyframes anmBtMenu {
+  from {
+    /* transform: translateX(0); */
+    width: 30px;
+  }
+  to {
+    /* transform: translateX(30px); */
+    width: 0;
+  }
+}
+@keyframes anmBtMenuHover {
+  from {
+    /* transform: translateX(-30px); */
+    width: 0;
+  }
+  to {
+    /* transform: translateX(0); */
+    width: 30px;
+  }
 }
 .open .line-top {
   transform: rotate(-45deg) translate(-10px, 0px);
