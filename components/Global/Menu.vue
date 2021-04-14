@@ -40,7 +40,7 @@
           </div>
           <div class="content__links">
             <ul class="content__links--top">
-              <li>
+              <li @click='openMenu'>
                 <NuxtLink to='/services'>What we do</NuxtLink>
               </li>
               <li><a href="#">Your work</a></li>

@@ -28,11 +28,11 @@ export default {
   },
 };
 </script>
-<style scoped>
-.hideWidth:hover > div {
+<style>
+.show_c .hideWidth > div {
   width: 0;
 }
-.hideHeight:hover > div {
+.show_c .hideHeight > div {
   width: 0;
 }
 </style>

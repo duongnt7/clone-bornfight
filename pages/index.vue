@@ -1,10 +1,6 @@
 <template>
-  <div class="container">
-    <div>
-      <Nav />
-      <Detail />
-      <Information />
-    </div>
+  <div>
+    <Home />
   </div>
 </template>
 
@@ -18,13 +14,6 @@ export default {};
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-}
 
 .title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,

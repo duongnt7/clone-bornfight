@@ -46,17 +46,6 @@ export default {
       return `translateY(calc(${this.$store.state.offset.offsetScroll} - 200vh))`;
     },
   },
-  beforeMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-  methods: {
-    handleScroll() {
-      this.$store.commit("offset/setPageYOffset", window.pageYOffset);
-    },
-  },
 };
 </script>
 <style scoped>

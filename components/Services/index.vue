@@ -10,12 +10,16 @@
   </div>
 </template>
 <script>
+import { AsyncComponent } from "vue";
 import ServiceHeader from "./Header";
 import Article from "./Article";
 import ImageFull from "./ImageFull";
 import Expertise from "./Expertise";
 import Testimonials from "./Testimonials";
-import FrameWorks from "./FrameWorks";
+// import FrameWorks from "./FrameWorks";
+// const FrameWorks = () => import("./FrameWorks");
+const FrameWorks = () =>
+  import(/* webpackChunkName: "FrameWorks" */ "./FrameWorks");
 export default {
   components: {
     ServiceHeader,

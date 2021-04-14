@@ -1,13 +1,30 @@
 <template>
   <div class="flex">
-    <Header />
+    <Menu />
     <div class="w-full">
       <Nuxt />
     </div>
   </div>
 </template>
-
+<script>
+import Menu from "~/components/Global/Menu";
+export default {
+  components: { Menu },
+  beforeMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.$store.commit("offset/setPageYOffset", window.pageYOffset);
+    }
+  }
+};
+</script>
 <style>
+@import "~/assets/style/main.scss";
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
