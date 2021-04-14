@@ -16,7 +16,7 @@
         @click="openMenu"
         :class="{ open: menuOpen }"
       >
-        <div class='bt-menu'>
+        <div class="bt-menu">
           <i class="relative header-menu-line line-top"></i>
           <i class="relative header-menu-line line-middle"></i>
           <i class="relative header-menu-line line-bot"></i>
@@ -27,7 +27,14 @@
       hello@bornfight.com
     </div> -->
     </div>
-    <div class="navigation" :class="{ navigation__animation: menuOpen, keep_nav: keepOpen, fade: animationFade}">
+    <div
+      class="navigation"
+      :class="{
+        navigation__animation: menuOpen,
+        keep_nav: keepOpen,
+        fade: animationFade
+      }"
+    >
       <div class="navigation__content">
         <div class="flex items-center navigation__content-left">
           <div class="content__logo-top">
@@ -40,8 +47,8 @@
           </div>
           <div class="content__links">
             <ul class="content__links--top">
-              <li @click='openMenu'>
-                <NuxtLink to='/services'>What we do</NuxtLink>
+              <li @click="openMenu">
+                <NuxtLink to="/services">What we do</NuxtLink>
               </li>
               <li><a href="#">Your work</a></li>
               <li><a href="#">Blog</a></li>
@@ -65,13 +72,13 @@
 </template>
 <script>
 export default {
-  name: "Header",
+  name: "Menu",
   data() {
     return {
       menuOpen: false,
       openImage: false,
       keepOpen: false,
-      animationFade: false,
+      animationFade: false
     };
   },
   methods: {
@@ -92,8 +99,8 @@ export default {
           this.animationFade = false;
         }, 1000);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
