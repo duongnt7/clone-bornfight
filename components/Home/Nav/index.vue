@@ -1,20 +1,26 @@
 <template lang="">
-  <section ref="nav" class='nav'>
-     <div class='o-container'> 
-        <h1 class='xl:text-8xl lg:text-7xl md:text-6xl font-bold text-left'>
-          <div>We build top-notch</div>
-          <div>custom web and</div>
-          <div>mobile solutions</div>
-        </h1>
+  <section ref="nav" class="nav">
+    <div class="o-container">
+      <h1 class="xl:text-8xl lg:text-7xl md:text-6xl font-bold text-left">
+        <div>We build top-notch</div>
+        <div>custom web and</div>
+        <div>mobile solutions</div>
+      </h1>
       <SlideText :text="slide[slideShow]" />
-      <div class='slide-control'>
-        <div class='slide-control-bt inline-block rounded-full relative ' @click='prevSlide'>
-          <div class='absolute slide-control-bt-img arrow-left' ></div>
-          <span class='slide-control-bt-hover rounded-full'></span>
+      <div class="slide-control">
+        <div
+          class="slide-control-bt inline-block rounded-full relative "
+          @click="prevSlide"
+        >
+          <div class="absolute slide-control-bt-img arrow-left"></div>
+          <span class="slide-control-bt-hover rounded-full"></span>
         </div>
-        <div class='slide-control-bt inline-block rounded-full' @click='nextSlide'>
-          <div class='absolute slide-control-bt-img' ></div>
-          <span class='slide-control-bt-hover rounded-full'></span>
+        <div
+          class="slide-control-bt inline-block rounded-full"
+          @click="nextSlide"
+        >
+          <div class="absolute slide-control-bt-img"></div>
+          <span class="slide-control-bt-hover rounded-full"></span>
         </div>
       </div>
     </div>
@@ -32,8 +38,8 @@ export default {
         `We create progress by designing and developing custom software, mobile applications and websites. `,
         `Download useful guides that will enable you to better navigate through your web and mobile projects. `,
         `Subscribe to our newsletter and get a selection of our top news for product managers and entrepreneurs. `,
-        `We create progress by designing and developing custom software, mobile applications and websites. `,
-      ],
+        `We create progress by designing and developing custom software, mobile applications and websites. `
+      ]
     };
   },
   mounted() {
@@ -61,8 +67,8 @@ export default {
       } else {
         this.slideShow--;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
@@ -71,7 +77,8 @@ export default {
   color: #fff;
   position: relative;
   padding: 12.5vh 0 12.5vh 6.25%;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
 }
 .slide-control-bt {
   border: 1px solid #fff;

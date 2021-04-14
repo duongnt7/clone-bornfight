@@ -1,15 +1,11 @@
 <template>
-  <div class="flex">
+  <div>
     <Menu />
-    <div class="w-full">
-      <Nuxt />
-    </div>
+    <Nuxt class="w-full" />
   </div>
 </template>
 <script>
-import Menu from "~/components/Global/Menu";
 export default {
-  components: { Menu },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
@@ -24,7 +20,7 @@ export default {
 };
 </script>
 <style>
-@import "~/assets/style/main.scss";
+/* @import "~/assets/style/main.scss"; */
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;

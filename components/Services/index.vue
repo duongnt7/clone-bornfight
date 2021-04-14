@@ -1,16 +1,19 @@
 <template lang="">
   <div>
-    <ServiceHeader/>
-    <Article/>
-    <ImageFull linkImg="https://www.bornfight.com/wp-content/uploads/2018/08/services-01.jpg" />
-    <Expertise/>
-    <ImageFull linkImg="https://www.bornfight.com/wp-content/uploads/2018/08/services-highlight-03.jpg" />
-    <Testimonials/>
-    <FrameWorks/>
+    <ServiceHeader />
+    <Article />
+    <ImageFull
+      linkImg="https://www.bornfight.com/wp-content/uploads/2018/08/services-01.jpg"
+    />
+    <Expertise />
+    <ImageFull
+      linkImg="https://www.bornfight.com/wp-content/uploads/2018/08/services-highlight-03.jpg"
+    />
+    <Testimonials />
+    <FrameWorks />
   </div>
 </template>
 <script>
-import { AsyncComponent } from "vue";
 import ServiceHeader from "./Header";
 import Article from "./Article";
 import ImageFull from "./ImageFull";
@@ -27,8 +30,8 @@ export default {
     ImageFull,
     Expertise,
     Testimonials,
-    FrameWorks,
-  },
+    FrameWorks
+  }
 };
 </script>
 <style>
