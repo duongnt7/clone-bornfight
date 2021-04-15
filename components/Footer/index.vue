@@ -164,7 +164,7 @@ export default {};
 <style>
 .footer .footer-section--top {
   background-color: #1a1a1a;
-  height: 360px;
+  height: 445px;
 }
 .footer-section__content {
   height: 100%;
